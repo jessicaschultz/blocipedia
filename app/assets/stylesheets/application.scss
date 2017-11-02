@@ -15,3 +15,55 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ // .navbar-collapse.collapse {
+ //     display: none!important;
+ //
+ #logo{
+  color: white;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+ }
+
+
+button.navbar-toggle {
+  display: block!important;
+  margin: auto;
+  padding: 13px 10px;
+}
+
+#toggle-div{
+  float: right;
+}
+
+.footer{
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 200px;
+  border-top: 2px solid #eee;
+  text-align: center;
+}
+
+@media (max-width: 767px){
+  nav .container{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 100%;
+  }
+  .navbar-header{
+    // float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+
+  }
+
+  #searchbar{
+    max-width: 300px;
+    // min-width: 100px;
+    margin: auto;
+    float: left;
+  }
+  #toggle-div{
+    float: right;
+  }
+}
