@@ -4,6 +4,15 @@
 .jumbotron{
   text-align: center;
 }
+.about-jumbo{
+  text-align: left !important;
+  background-color: white !important;
+}
+.jumbotron-bgimg{
+  height: auto;
+  width: 100%;
+}
+
 #featurette{}
 .featurette-divider{
   margin-top: 40px;
@@ -13,7 +22,7 @@
   width: 90%;
 }
 .featurette-heading{
-  font-size: 50px !important;
+  // font-size: 50px !important;
   text-align: left;
 }
 .marketing-heading{
