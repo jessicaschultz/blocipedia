@@ -21,6 +21,8 @@ end
    gem 'web-console', '>= 3.3.0'
  end
 
+gem 'devise'
+
 gem 'bootstrap-sass'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'

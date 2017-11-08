@@ -1,5 +1,14 @@
 <div class="jumbotron">
   <h1>Welcome to Blocipedia</h1>
-  <p class="lead">A place where you can build your own wikis and share them <br> publicly or privatly with other collaborators.</p>
-  <p><a class="btn btn-lg btn-success" href="#" role="button">New Wiki</a></p>
+  <% if user_signed_in? %>
+    <div class=""> <!-- Show if signed in -->
+      <p class="lead">A place where you can build your own wikis and share them <br> publicly or privatly with other collaborators.</p>
+      <p><a class="btn btn-lg btn-success" href="#" role="button">New Wiki</a></p>
+    </div>
+  <% else %>
+  <div class=""> <!-- Show if not signed in -->
+    <p>Register to get started.</p>
+    <p><%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg'%></p>
+  </div>
+  <% end %>
 </div>

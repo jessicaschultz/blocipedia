@@ -11,9 +11,7 @@
   <body>
     <nav class="navbar navbar-inverse" role="navigation">
       <div class="container">
-        <!-- <div class="navbar-header navbar-expand-lg"> -->
           <a class="navbar-brand navbar-text" id="logo" href="#">Blocipedia</a>
-<!-- id="searchbar" navbar-expand-lg navbar-text-->
           <div id="searchbar" class="navbar-text">
             <!-- navbar-left -->
             <form class="navbar-form">
@@ -27,22 +25,24 @@
               </div>
             </form>
           </div>
-        <!-- </div> -->
-<!--div navbar-toggle collapsed ; navbar-toggler navbar-expand-lg pull-right ; pull-right-->
+
         <div class="navbar-text" id="toggle-div">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#my-navbar" aria-expanded="false" aria-controls="my-navbar" aria-label="Toggle navigation">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        <div class="navbar-toggle collapse" id="my-navbar">
-          <ul class="navbar-collapse list-unstyled list-inline" id="">
-            <li class="nav-item"><%= link_to "Home", welcome_index_path, class:"nav-link active" %></li>
-            <li class="nav-item"><%= link_to "About", welcome_about_path, class:"nav-link"%></li>
-            <li class="nav-item">Profile</li>
-            <li class="nav-item">wikis</li>
-          </ul>
-        </div>
+
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#my-navbar" aria-expanded="false" aria-controls="my-navbar" aria-label="Toggle navigation">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          <div class="navbar-toggle collapse" id="my-navbar">
+            <ul class="navbar-collapse list-unstyled list-inline" id="">
+              <li class="nav-item"><%= link_to "Home", welcome_index_path, class:"nav-link active" %></li>
+              <li class="nav-item"><%= link_to "About", welcome_about_path, class:"nav-link"%></li>
+              <li class="nav-item"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-link' %></li>
+              <li class="nav-item">wikis</li>
+            </ul>
+          </div>
+
       </div>
     </div> <!-- container -->
   </nav>
