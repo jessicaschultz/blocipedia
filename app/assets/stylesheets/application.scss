@@ -19,12 +19,30 @@
  // .navbar-collapse.collapse {
  //     display: none!important;
  //
+
+ nav{
+   display: flex;
+ }
  #logo{
   color: white;
   letter-spacing: 2px;
   text-transform: uppercase;
  }
 
+.login-status{
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  float: right;
+  margin-top: 16px;
+
+  .login{
+    color: white;
+    letter-spacing: 1px;
+    margin-left: 2px;
+
+  }
+}
 
 button.navbar-toggle {
   display: block!important;
@@ -34,6 +52,10 @@ button.navbar-toggle {
 
 #toggle-div{
   float: right;
+  #my-navbar{
+    margin: 8px 0 0 0;
+    padding: 0;
+  }
 }
 
 .footer{
