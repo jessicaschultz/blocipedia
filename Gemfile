@@ -48,12 +48,24 @@ group :development do
   # gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+  gem 'rails-controller-testing'
+  gem 'shoulda'
+  gem 'factory_girl_rails', '~> 4.0'
+end
+
+# Use ActiveModel has_secure_password
+gem 'bcrypt', '~> 3.1.7'
+#faker gem for generating random data
+gem 'faker', '~> 1.6', '>= 1.6.6'
+
+
+
 # Use CoffeeScript for .coffee assets and views
 # gem 'coffee-rails', '~> 4.2'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
