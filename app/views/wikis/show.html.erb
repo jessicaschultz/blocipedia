@@ -1,0 +1,26 @@
+<%= params %>
+<div class="row">
+  <div class="col-md-8">
+    <h1><%= @wikis.title %></h1>
+    <p class="lead"><%= @wikis.body%></p>
+
+    <div class="media">
+      <!-- need to fix to check if current_user is author of wiki. if so show the following: -->
+      <% if current_user %>
+        <%= link_to "Edit wiki", edit_wiki_path, class: 'btn btn-success'%>
+        <%= link_to "Delete Wiki", @wikis, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this wiki?' }%>
+      <% end %>
+      <div class="media-body">
+        <small>
+          submitted <%= time_ago_in_words(@wikis.created_at) %> ago by <%= @wikis.user.email %>
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <% if user_signed_in? %>
+    <div class="col-md-4">
+      <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-success' %>
+    </div>
+  <% end %>
+</div>
