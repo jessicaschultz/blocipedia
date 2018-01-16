@@ -1,5 +1,5 @@
 class WikisController < ApplicationController
-
+  # before_action :authorize_user, except: [:show, :new, :create]
 
   def index
     @wikis = Wiki.all
@@ -60,7 +60,14 @@ class WikisController < ApplicationController
 
   private
     def wiki_params
-      params.require(:wiki).permit(:title, :body)
+      params.require(:wiki).permit(:title, :body, :id)
     end
 
+    # def authorize_user
+    #  @wikis = Wiki.find(params[:id])
+    #  unless current_user.id == wikis.user_id
+    #    flash[:alert] = "You must be the author of the wiki to do that."
+    #    redirect_to [@wikis]
+    #  end
+    # end
 end
