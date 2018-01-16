@@ -1,24 +1,35 @@
-<%= params %>
-
-<h1>Popular Wikis:</h1>
-<div class="row">
-  <div class="col-md-8">
-    <% @wikis.each do |wiki| %>
-      <div class="media">
-        <div class="media-body">
-          <h4 class="media-heading">
-            <%= link_to wiki.title, wiki %>
-          </h4>
-          <small>
-            submitted <%= time_ago_in_words(wiki.created_at) %> ago by <%= wiki.user.email %>
-          </small>
+<div id="content">
+  <section class="wikis" id="wikis">
+    <div class="container">
+      <div class="col-sm-12">
+        <div class="heading-block-view">
+          <h1 class="huge-tittle animate fadeInRight">Popular Wikis</h1>
         </div>
+        <hr class="featurette-divider">
       </div>
-    <% end %>
-  </div>
-  <% if user_signed_in? %>
-    <div class="col-md-4">
-      <%=link_to "New Wiki", new_wiki_path, class: 'btn btn-success'%>
+
+      <div class="row">
+        <div class="col-md-8 wiki-list">
+          <% @wikis.each do |wiki| %>
+            <div class="media">
+              <div class="media-body">
+                <h4 class="media-heading">
+                  <%= link_to wiki.title, wiki %>
+                </h4>
+                <small>
+                  submitted <%= time_ago_in_words(wiki.created_at) %> ago by <%= wiki.user.email %>
+                </small>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <% if user_signed_in? %>
+          <div class="col-md-4 wiki-btn-col">
+            <%=link_to "New Wiki", new_wiki_path, class: 'btn-sm'%>
+          </div>
+        <% end %>
+      </div>
+
     </div>
-  <% end %>
+  </section>
 </div>

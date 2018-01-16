@@ -1,0 +1,48 @@
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container">
+    <%= link_to 'Blocipedia', root_path, id: 'logo', class: 'navbar-brand navbar-text'%>
+    <% if user_signed_in? %>
+      <div id="searchbar" class="navbar-text">
+        <!-- navbar-left -->
+        <form class="navbar-form">
+          <div class="form-group input-group searchbar">
+            <input type="Search" placeholder="Search for wiki..." class="form-control">
+            <div class="input-group-btn">
+              <button type="submit" class="btn">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    <% end %>
+
+      <div class="navbar-text" id="toggle-div">
+        <% if user_signed_in? %>
+            <div class="login-status">
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => 'login btn'%>
+            </div>
+          <%else%>
+            <div class="login-status">
+              <%= link_to 'sign up', new_user_registration_path, :class => 'login btn'%>
+              <%= link_to 'sign in', new_user_session_path, :class => 'login btn'%>
+            </div>
+        <%end%>
+
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#my-navbar" aria-expanded="false" aria-controls="my-navbar" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <div class="navbar-toggle collapse" id="my-navbar">
+            <ul class="navbar-collapse list-unstyled list-inline" id="">
+              <li class="nav-item"><%= link_to "Home", root_path, class:"nav-link active" %></li>
+              <li class="nav-item"><%= link_to "About", about_path, class:"nav-link"%></li>
+              <li class="nav-item"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-link' %></li>
+              <li class="nav-item"><%= link_to 'Wikis', wikis_path, :class => 'nav-link' %></li>
+            </ul>
+          </div>
+      </div> <!-- end navbar-text -->
+  </div> <!-- container -->
+</nav>

@@ -1,2 +1,48 @@
-<h1>Wikis#edit</h1>
-<p>Find me in app/views/wikis/edit.html.erb</p>
+<div id="content">
+   <section class="wikis" id="wikis">
+
+     <div class="container">
+       <div class="col-sm-12 heading-block-view wiki-show-view-heading">
+         <div class="col-md-8">
+           <h1 class="huge-tittle animate fadeInRight">Edit</h1>
+         </div>
+         <div class="col-md-4">
+           <%= link_to "Back to Wikis", wikis_path, class: 'btn-flat' %>
+         </div>
+       </div>
+
+
+       <hr class="featurette-divider">
+
+       <div class="row">
+         <div class="col-md-8 wiki-list">
+           <div class="media media-body">
+             <%= form_for @wikis do |f| %>
+             <%= f.label :title, class: 'media-heading'%>
+             <%= f.text_field :title, class: 'form-control', placeholder: "Enter Wiki title" %>
+             <br />
+             <%= f.label :body, class: 'media-heading' %>
+             <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter Wiki body" %>
+             <div class="form-group">
+               <br>
+               <%= f.submit "Save", class: 'btn-sm' %>
+             </div>
+             <% end %>
+           </div>
+         </div>
+
+         <div class="col-md-4 wiki-btn-col">
+           <div class="media">
+             <div class="media-body">
+             <!-- need to fix to check if current_user is author of wiki. if so show the following: -->
+             <% if current_user %>
+               <%= link_to "Delete", @wikis, method: :delete, class: 'btn-sm', data: { confirm: 'Are you sure you want to delete this wiki?' }%>
+             <% end %>
+             </div>
+           </div>
+         </div>
+       </div>
+
+     </div>
+   </section>
+ </div>

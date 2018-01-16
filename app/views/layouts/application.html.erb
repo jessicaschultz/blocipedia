@@ -6,75 +6,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Fonts Online -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900|Playfair+Display:400,700,900&subset=cyrillic,latin-ext" rel="stylesheet">
   </head>
 
   <body>
-    <nav class="navbar navbar-inverse" role="navigation">
-      <div class="container">
-        <%= link_to 'Blocipedia', root_path, id: 'logo', class: 'navbar-brand navbar-text'%>
-          <div id="searchbar" class="navbar-text">
-            <!-- navbar-left -->
-            <form class="navbar-form">
-              <div class="form-group input-group">
-                <input type="Search" placeholder="Search for wiki..." class="form-control">
-                <div class="input-group-btn">
-                  <button type="submit" class="btn">
-                    <span class="glyphicon glyphicon-search"></span>
+    <!-- e:PAGE WRAPPER -->
+    <div id="wrap">
+      <!--f:HEADER -->
+      <div class="login-status-container">
+        <% if user_signed_in? %>
+        <div class="login-status">
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => 'btn-sm'%>
+        </div>
+        <%else%>
+        <div class="login-status">
+          <%= link_to 'sign up', new_user_registration_path, :class => 'login btn'%>
+          <%= link_to 'sign in', new_user_session_path, :class => 'login btn'%>
+        </div>
+        <%end%>
+      </div>
+      <div class="flash-container">
+        <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:notice] %>
+        </div>
+        <% elsif flash[:alert] %>
+        <div class="alert alert-warning">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:alert] %>
+        </div>
+        <% end %>
+      </div>
+
+      <header class="header light">
+        <div class="sticky">
+          <div class="container">
+            <div class="logo">
+              <%= image_tag "_img/logo3.png", alt:"blocipedia" %>
+            </div>
+
+            <!-- TOGGLE NAV -->
+            <nav class="navbar ownmenu">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-open-btn" aria-expanded="false">
+                    <span id="nav-btn"><i class="fa fa-navicon"></i></span>
                   </button>
                 </div>
-              </div>
-            </form>
-          </div>
 
-    <% if user_signed_in? %>
-          <div class="login-status">
-            <%= link_to 'Sign out', destroy_user_session_path, method: :delete, :class => 'login btn btn-primary'%>
-          </div>
-          <div class="navbar-text" id="toggle-div">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#my-navbar" aria-expanded="false" aria-controls="my-navbar" aria-label="Toggle navigation">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
+                <!-- MAIN NAV -->
+                <div class="collapse navbar-collapse" id="nav-open-btn">
+                  <ul class="nav">
+                    <li class="dropdown"><%= link_to "HOME", root_path, :class =>"dropdown-toggle nav-link"%>
+                      <ul class="dropdown-menu">
+                        <li><%= link_to "WIKIS", wikis_path, :class =>"dropdown"%></li>
+                        <li><%= link_to "WIKIS", wikis_path, :class =>"dropdown"%></li>
+                        <li><%= link_to "PROFILE", edit_user_registration_path, :class =>"dropdown"%></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown"><%= link_to "About", about_path, :class =>"nav-link"%></li>
+                    <li class="dropdown"><%= link_to "WIKIS", wikis_path, :class =>"nav-link"%></li>
+                    <li class="dropdown"><%= link_to "PLANS", about_path, :class =>"nav-link"%></li>
+                    <li class="dropdown"><%= link_to "PROFILE", edit_user_registration_path, :class =>"nav-link"%></li>
+                  </ul>
+                </div>
+            </nav>
 
-              <div class="navbar-toggle collapse" id="my-navbar">
-                <ul class="navbar-collapse list-unstyled list-inline" id="">
-                  <li class="nav-item"><%= link_to "Home", root_path, class:"nav-link active" %></li>
-                  <li class="nav-item"><%= link_to "About", about_path, class:"nav-link"%></li>
-                  <li class="nav-item"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-link' %></li>
-                  <li class="nav-item"><%= link_to 'Wikis', wikis_path, :class => 'nav-link' %></li>
-                </ul>
-              </div>
           </div>
-    <%else%>
-        <div class="login-status">
-          <%= link_to 'sign up', new_user_registration_path, :class => 'login btn btn-success'%>
-          <%= link_to 'sign in', new_user_session_path, :class => 'login btn btn-primary'%>
         </div>
-    <%end%>
-      </div> <!-- container -->
-    </nav>
+      </header>
 
-    <div class="container">
-      <% if flash[:notice] %>
-         <div class="alert alert-success">
-           <button type="button" class="close" data-dismiss="alert">&times;</button>
-           <%= flash[:notice] %>
-         </div>
-       <% elsif flash[:alert] %>
-         <div class="alert alert-warning">
-           <button type="button" class="close" data-dismiss="alert">&times;</button>
-           <%= flash[:alert] %>
-         </div>
-       <% end %>
-    <%= yield %>
-    </div>
 
+    </div> <!-- end wrap -->
+
+    <div class="content-wrap">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div> <!-- end content-wrap -->
 
     <!-- Site footer -->
-      <footer class="footer">
-        <p>&copy; 2017 | Jessica Schultz</p>
-      </footer>
-
+    <footer class="footer">
+      <div class="footer-wrap">
+        <div class="cir-tri-bg"></div>
+        <div class="container" id="">
+          <div class="rights">
+            <div class="social-icons margin-top-30">
+              <a href="#." class="footer-links"><i class="icon-social-facebook"></i></a>
+              <a href="#." class="footer-links"><i class="icon-social-twitter"></i></a>
+              <a href="#." class="footer-links"><i class="icon-social-dribbble"></i></a>
+              <a href="#." class="footer-links"><i class="icon-social-tumblr"></i></a>
+            </div>
+            <p><small>&copy; 2017 | Jessica Schultz</small></p>
+          </div>
+        </div>
+      </div> <!-- end foot-wrap -->
+    </footer>
   </body>
 </html>

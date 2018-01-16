@@ -1,0 +1,37 @@
+  <div class="hero">
+      <div class="hero-feature row">
+        <div class="col-sm">
+          <!-- <%= image_tag "_old_img/mobile-tablet.png", class:"jumbotron-bgimg", alt:"blocipedia" %> -->
+        </div>
+        <div class="col-sm">
+          <h1>Blocipedia</h1>
+          <p class="lead">A place where you can build your own wikis and share them <br> publicly or privatly with other collaborators.</p>
+
+          <%if user_signed_in?%>
+          <%= link_to 'New Wiki', new_wiki_path, :class => 'login btn btn-lg'%>
+          <% else %>
+          <%= link_to 'Get Started', new_user_registration_path, :class => 'login btn btn-lg'%>
+          <% end %>
+        </div>
+
+      </div>
+
+  </div>
+
+  <div class="hero" id="about-img">
+    <div class="col about-feature">
+        <p class="lead about-p">A place for sharing & creating awesome content</p>
+
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="call-to-action-feature row">
+      <div class="col-sm">
+        <p class="lead">Get started with your free account today!</p>
+      </div>
+      <div class="col-sm">
+
+      </div>
+    </div>
+  </div>

@@ -1,12 +1,229 @@
-<div class="jumbotron">
-
-  <h1>Welcome to Blocipedia</h1>
-  <div class="">
-    <p class="lead">A place where you can build your own wikis and share them <br> publicly or privatly with other collaborators.</p>
+<!--g:HOME-->
+<div class="home-agency">
+  <div class="position-center-center">
+    <div class="container">
+      <div class="ag-text">
+        <h3 class="animate fadeInDown" data-wow-delay="0.4s">Welcome to</h3>
+        <h1 class="animate fadeInDown" data-wow-delay="0.6s">Blocipedia</h1>
+        <p class="animate fadeInDown" data-wow-delay="0.8s">Knowledge Meets Collaboration</p>
+      </div>
+    </div>
   </div>
-  <%if user_signed_in?%>
-    <%= link_to 'New Wiki', wikis_path, :class => 'login btn btn-success btn-lg'%>
-  <% else %>
-  <%= link_to 'Get Started', new_user_registration_path, :class => 'login btn btn-success btn-lg'%>
-  <% end %>
 </div>
+
+<%if user_signed_in?%>
+
+  <div id="content">
+    <!-- a:ABOUT SECTION-->
+    <section class="hello" id="about">
+      <!-- Diagonal Top -->
+      <div class="cir-tri-bg"></div>
+      <div class="container">
+
+          <!-- Heading Block -->
+          <div class="heading-block">
+            <h6 class="animate fadeInRight" data-wow-delay="0.4s">What is Blocipedia?</h6>
+            <span class="huge-tittle">about</span> </div>
+
+          <div class="col-sm-5" data-wow-delay="0.5s">
+            <%= image_tag "_img/icon-services-2.png", class:"hello-img animate fadeInLeft", alt:"blocipedia" %>
+          </div>
+          <!-- CONTENT INFO -->
+          <div class="col-sm-7">
+            <h4>Simply put, Blocipedia is a place for Knowledge & Collaboration.</h4>
+            <div class="test-info">
+              <p>read, build, or collaborate on community-sourced content...</p>
+              <a href="#." class="btn-flat">Get Started</a> </div>
+          </div>
+      </div>
+      <!-- Bottom BG Style -->
+      <div class="cir-bottom-bg"></div>
+    </section>
+    <!-- b:WORK SECTION -->
+    <section class="work-process" id="workflow-process">
+        <!-- TOP bg Style -->
+        <div class="cir-tri-bg" data-stellar-background-ratio="0.4"></div>
+        <div class="container">
+
+          <!-- Heading Block -->
+          <div class="heading-block white">
+            <h6 class="animate fadeInRight" data-wow-delay="0.4s">workflow</h6>
+            <span class="huge-tittle">process</span> </div>
+
+            <!-- Process Steps -->
+            <div class="process-style-2">
+              <ul class="row">
+                <!-- write -->
+                <li>
+                  <div class="media-left">
+                    <div class="icon animate fadeInLeft" data-wow-delay="0.4s">
+                      <%= image_tag "_img/process-icon-1.png", class:"", alt:"blocipedia" %>
+                      <!-- <img src="images/process-icon-1.png" alt="" >  -->
+                    </div>
+                  </div>
+                  <div class="media-body">
+                    <h4>Write</h4>
+                    <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aes bib auctor.</p>
+                  </div>
+                </li>
+                <!-- read -->
+                <li>
+                  <div class="media-left">
+                    <div class="icon animate fadeInLeft" data-wow-delay="0.4s">
+                      <%= image_tag "_img/process-icon-2.png", class:"", alt:"blocipedia" %>
+                      <!-- <img src="images/process-icon-2.png" alt="" >  -->
+                    </div>
+                  </div>
+                  <div class="media-body">
+                    <h4>Read</h4>
+                    <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aes bib auctor.</p>
+                  </div>
+                </li>
+                <!-- Brainstorm -->
+                <li>
+                  <div class="media-left">
+                    <div class="icon animate fadeInLeft" data-wow-delay="0.4s">
+                      <%= image_tag "_img/process-icon-3.png", class:"", alt:"blocipedia" %>
+                      <!-- <img src="images/process-icon-3.png" alt="" >  -->
+                    </div>
+                  </div>
+                  <div class="media-body">
+                    <h4>Brainstorm</h4>
+                    <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aes bib auctor.</p>
+                  </div>
+                </li>
+                <!-- create -->
+                <li>
+                  <div class="media-left">
+                    <div class="icon animate fadeInLeft" data-wow-delay="0.4s">
+                      <%= image_tag "_img/process-icon-4.png", class:"", alt:"blocipedia" %>
+                      <!-- <img src="images/process-icon-4.png" alt="" >  -->
+                    </div>
+                  </div>
+                  <div class="media-body">
+                    <h4>create</h4>
+                    <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aes bib auctor.</p>
+                  </div>
+                </li>
+                <!-- Launch -->
+                <li>
+                  <div class="media-left">
+                    <div class="icon animate fadeInLeft" data-wow-delay="0.4s">
+                      <%= image_tag "_img/process-icon-5.png", class:"", alt:"blocipedia" %>
+                      <!-- <img src="images/process-icon-5.png" alt="" >  -->
+                    </div>
+                  </div>
+                  <div class="media-body">
+                    <h4>Launch</h4>
+                    <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aes bib auctor.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+        </div>
+        <!-- <div class="cir-bottom-bg"></div> -->
+    </section>
+    <!-- c:PLANS SECTION -->
+    <section class="profile-main" id="plans" data-stellar-background-ratio="0.5">
+        <!-- TOP bg Style -->
+        <div class="cir-bottom-bg"></div>
+        <div class="container">
+
+          <!-- Heading Block -->
+          <div class="heading-block">
+            <h6 class="animate fadeInRight" data-wow-delay="0.4s">sign up today</h6>
+            <span class="huge-tittle">plans</span> </div>
+
+          <!-- Plan Tabs -->
+          <div class="profile-inn plan-table">
+            <div class="row">
+              <div class="col-md-5 animate fadeInLeft" id="plan-1" data-wow-delay="0.4s">
+                <h3>Standard</h3>
+                <p>Lorem ipsdolor sit amet, consectetur adipisc elit. Donec quis erat sed elit sceis Lorem ipsum dolor sit amet, </p>
+                <div class="btn-part"> <a href="#." class="btn-large">select</a></div>
+              </div>
+              <div class="col-md-5 animate fadeInLeft" id="plan-2" data-wow-delay="0.4s">
+                <h3>Premium</h3>
+                <p>Lorem ipsdolor sit amet, consectetur adipisc elit. Donec quis erat sed elit sceis Lorem ipsum dolor sit amet, </p>
+                <div class="btn-part"><a href="#." class="btn-large btn-large-1 ">select</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom BG Style -->
+        <div class="cir-bottom-bg"></div>
+    </section>
+    <!-- d:[contact] SECTION -->
+    <section class="tba" id="tba">
+      <div class="cir-tri-bg"></div>
+      <div class="container">
+
+        <!-- Heading Block -->
+        <div class="heading-block white">
+          <h6 class=" animate fadeInRight" data-wow-delay="0.4s">What are you waiting for?</h6>
+          <span class="huge-tittle">TBA</span></div>
+        <div class="tba-body" id="contact-div"></div>
+      </div>
+      <div class="cir-bottom-bg"></div>
+    </section>
+  </div> <!-- End Content -->
+  
+<% else %>
+
+  <div id="content">
+    <!-- a:ABOUT SECTION-->
+    <section class="hello" id="about">
+      <!-- Diagonal Top -->
+      <div class="cir-tri-bg"></div>
+      <div class="container">
+          <!-- Heading Block -->
+          <div class="heading-block">
+            <h6 class="animate fadeInRight" data-wow-delay="0.4s">What is Blocipedia?</h6>
+            <span class="huge-tittle">about</span> </div>
+
+          <div class="col-sm-5" data-wow-delay="0.5s">
+            <%= image_tag "_img/icon-services-2.png", class:"hello-img animate fadeInLeft", alt:"blocipedia" %>
+
+          <div class="col-sm-7">
+            <h4>Simply put, Blocipedia is a place for Knowledge & Collaboration.</h4>
+            <div class="test-info">
+              <p>read, build, or collaborate on community-sourced content...</p>
+              <a href="#." class="btn-flat">Get Started</a> </div>
+          </div>
+      </div>
+      <!-- Bottom BG Style -->
+      <div class="cir-bottom-bg"></div>
+    </section>
+    <!-- c:PLANS SECTION -->
+    <section class="profile-main" id="plans" data-stellar-background-ratio="0.5">
+        <!-- TOP bg Style -->
+        <div class="cir-bottom-bg"></div>
+        <div class="container">
+
+          <!-- Heading Block -->
+          <div class="heading-block">
+            <h6 class="animate fadeInRight" data-wow-delay="0.4s">sign up today</h6>
+            <span class="huge-tittle">plans</span> </div>
+
+          <!-- Plan Tabs -->
+          <div class="profile-inn plan-table">
+            <div class="row">
+              <div class="col-md-5 animate fadeInLeft" id="plan-1" data-wow-delay="0.4s">
+                <h3>Standard</h3>
+                <p>Lorem ipsdolor sit amet, consectetur adipisc elit. Donec quis erat sed elit sceis Lorem ipsum dolor sit amet, </p>
+                <div class="btn-part"> <a href="#." class="btn-large">select</a></div>
+              </div>
+              <div class="col-md-5 animate fadeInLeft" id="plan-2" data-wow-delay="0.4s">
+                <h3>Premium</h3>
+                <p>Lorem ipsdolor sit amet, consectetur adipisc elit. Donec quis erat sed elit sceis Lorem ipsum dolor sit amet, </p>
+                <div class="btn-part"><a href="#." class="btn-large btn-large-1 ">select</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Bottom BG Style -->
+        <div class="cir-bottom-bg"></div>
+    </section>
+  </div> <!-- End Content -->
+<% end %>

@@ -1,35 +1,288 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.jumbotron{
-  text-align: center;
+/*------------------------------------------------------------------
+INDEX
+   a:IMPORT FILE
+   g:HOME
+   h:CONTENT SECTION
+        a:ABOUT SECTION
+        b:WORK SECTION
+        c:BLOC-PLANS SECTION
+        d:[contact] SECTION
+ ====================================
+ Global Theme Colors:
+   pink: #F65589
+   blue: #4fd5ed
+   White: #fff
+   body grey: #f7f7f7
+-------------------------------------------------------------------*/
+/*=======================================================
+      a:IMPORT FILE
+========================================================
+@import url("../fonts/montserrat-fonts.css");*/
+// @import url("animate.css");
+/*=======================================================
+	g:HOME
+========================================================*/
+.home-agency {
+ /* height: 1000px; */
+ height: 800px;
+ position: relative;
+ text-align: center;
+ background: #4fd5ed url(_img/bg/hello-bg-1.png) center center fixed no-repeat;
 }
-.about-jumbo{
-  text-align: left !important;
-  background-color: white !important;
+.home-agency .ag-text {
+ /* -ms-transform: rotate(-90deg);
+ -webkit-transform: rotate(-90deg);
+ transform: rotate(-90deg); */
+ -ms-transform: rotate(0deg);
+ -webkit-transform: rotate(0deg);
+ transform: rotate(0deg);
+	/* margin-top: 100px; */
+	margin-top: 50px;
 }
-.jumbotron-bgimg{
-  height: auto;
-  width: 100%;
+.home-agency h1 {
+ font-size: 100px;
+ color: #fff;
+ font-weight: bold;
+ text-transform: uppercase;
+ margin: 0px;
 }
+.home-agency h3 {
+ font-size:70px;
+ color: #fff;
+ margin: 0px;
+ font-weight: bold;
+ text-transform: uppercase;
+}
+.home-agency p {
+ font-size: 30px;
+ color: #fe6192;
+ letter-spacing: 2px;
+ font-weight: normal;
+}
+/*=======================================================
+			h:CONTENT SECTION
+========================================================*/
+#content{
+  padding-top: 100px;
+}
+section{
+	position: relative;
+	width: 100%;
+	background: #fff;
+}
+			/*========================
+					a:ABOUT SECTION
+			- refactor .hello to .about
+			=========================*/
+.hello {
+ /* background-color: #f7f7f7; */
+ background-color: #fff;
+ padding-bottom: 100px;
+ padding-top: 100px;
+ justify-content: center;
+ // text-align: center;
 
-#featurette{}
+}
+.hello:after {
+ width: 0;
+ height: 0;
+ border-style: solid;
+ border-width: 100px 1920px 0 0;
+ border-color: transparent transparent #000 transparent;
+ position: absolute;
+ bottom: 0px;
+ content: "";
+}
+.hello .container {
+	z-index: 2;
+	position: relative;
+}
+.hello h4 {
+ line-height: 52px;
+ color: #b2b1b8;
+ font-weight: normal;
+ margin: 0px;
+ margin-bottom: 50px;
+ margin-top: 100px;
+}
+.hello .hello-img {
+ // margin-left: -100px;
+}
+.hello .test-info {
+ padding-right: 100px;
+}
+.hello .test-info .btn-flat {
+ float: right;
+ margin-top: 80px;
+}
+.hello .cir-bottom-bg {
+ z-index: 1;
+}
+.hello .cir-bottom-bg:before {
+ 	z-index: 1;
+}
+.hello .cir-tri-bg {
+	 background: url(_img/bg/hello-bg.png) bottom no-repeat;
+	 height: 100%;
+	 z-index: 2;
+	 overflow: inherit !important;
+}
+.hello .cir-tri-bg:before {
+ top: -15px;
+ z-index: -1;
+ height: 100px;
+ -ms-transform: rotate(-3deg);
+ -webkit-transform: rotate(-3deg);
+ transform: rotate(-3deg);
+ /* background: #f7f7f7; */
+ background: #fff;
+}
 .featurette-divider{
-  margin-top: 40px;
+  padding-top: 10px;
+  margin-top: 0;
 }
-.featurette-image{
-  height: 80%;
-  width: 90%;
+.about-img{
+  width: 40%;
 }
-.featurette-heading{
-  // font-size: 50px !important;
+.about-lead{
   text-align: left;
+  padding-top:10%;
 }
-.marketing-heading{
-  text-align: center;
-  padding-bottom: 40px;
+			/*========================
+					b:WORK SECTION
+			=========================*/
+.work-process {
+ background: #6F43D6;
+ padding-top: 300px;
+ padding-bottom: 100px;
+ position: relative;
+ overflow: hidden;
+ z-index: 1;
 }
-.thumbnail{
-  justify-content: center;
-  text-align: center;
+.work-process .cir-tri-bg {
+ background: url(_img/bg/process-top.png) center right no-repeat;
+	height: 100%;
+}
+.work-process .cir-bottom-bg {
+ background: url(_img/bg/process-bottom.png) left 0px no-repeat;
+}
+.process-style-2 ul li:nth-child(1) {
+ background: url(_img/bg/process-line-1.png) 65px top no-repeat !important;
+ padding-top: 180px !important;
+}
+.process-style-2 ul li:nth-child(odd) {
+ background: url(_img/bg/process-line-3.png) 65px top no-repeat;
+ padding-top: 100px;
+}
+.process-style-2 ul li:nth-child(even) {
+ background: url(_img/bg/process-line-2.png) 65px top no-repeat;
+ padding-left: 590px;
+ padding-top: 100px;
+}
+.process-style-2 ul li .icon {
+ margin: 30px 0;
+ display: inline-block;
+ height: 124px;
+ margin-right: 30px;
+ width: 124px;
+ text-align: center;
+}
+.process-style-2 ul li h4 {
+ color: #4fd5ed;
+ text-transform: uppercase;
+ font-size: 30px;
+}
+.process-style-2 ul li .media-body {
+ max-width: 390px;
+}
+.process-style-2 ul li p {
+ color: #bda7f1;
+}
+			/*========================
+					c:BLOC-PLANS SECTION
+			- refactor .profile-main to .bloc-plans
+			- refactor .profile-inn to .plan-table
+			- add .plan to div col within .plan-table
+			=========================*/
+.profile-main {
+ background: #fff url(_img/bg/profile-bg.png) center left no-repeat;
+ padding-top: 200px;
+ padding-bottom: 100px;
+}
+.profile-main .cir-tri-bg {
+ z-index: 1;
+}
+.profile-main .cir-tri-bg:before {
+ background: #fff;
+ top: -260px;
+}
+.profile-main .cir-bottom-bg {
+ z-index: 1;
+ top: 0;
+ height: 285px;
+ background-color: #6f44d6;
+}
+.profile-inn{
+ margin: auto;
+ text-align: center;
+	padding-left: 150px;
+}
+.profile-main .profile-inn h3 {
+ font-size: 40px;
+ padding: auto;
+ margin-bottom: 30px;
+ /* margin-top: 80px; */
+ /* margin: 0 auto; */
+}
+/* .profile-main .test-sec {
+ position: relative;
+ z-index: 1;
+ padding-left: 7%;
+ position: relative;
+}
+.profile-main .tabs-sec {
+ background: #fff;
+ position: relative;
+ padding-top: 80px;
+ padding-left: 70px;
+ margin-left: -100px;
+ padding-bottom: 20px;
+ padding-right: 250px;
+ min-height: 513px;
+} */
+.profile-main .btn-part {
+ margin-top: 50px;
+ text-align: center;
+}
+.profile-main .btn-large {
+ margin: 0 10px;
+ padding: 12px 0;
+ min-width: 350px;
+ display: inline-block;
+}
+#plan-1, #plan-2{
+ border: 5px solid #F65589 !important;
+ margin: 0 10px;
+ padding: 12px;
+}
+			/*======================================
+					d:[contact] SECTION
+			- refactor .tba .tba-body
+			========================================*/
+.tba {
+ background: #4FD5ED;
+ padding-top: 400px;
+ padding-bottom: 100px;
+ position: relative;
+ z-index: 1;
+}
+.tba .cir-tri-bg {
+ height: 100%;
+ background: url(_img/bg/contact-bg.png) center left/contain no-repeat;
+}
+.tba .cir-tri-bg:before {
+ height: 340px;
 }

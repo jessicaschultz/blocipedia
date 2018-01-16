@@ -1,4 +1,6 @@
 class WikisController < ApplicationController
+
+
   def index
     @wikis = Wiki.all
   end
@@ -13,6 +15,7 @@ class WikisController < ApplicationController
 
   def create
     @wikis = Wiki.new(wiki_params)
+    @wikis.user_id = current_user.id
     @wikis.title = params[:wiki][:title]
     @wikis.body = params[:wiki][:body]
     @wikis.save
@@ -43,10 +46,21 @@ class WikisController < ApplicationController
   end
 
   def destroy
+    @wikis = Wiki.find(params[:id])
+    flash.now[:alert] = 'Are you sure you want to delete this wiki?'
+
+    if @wikis.destroy
+      flash[:notice] = "\"#{@wikis.title}\" was deleted."
+      redirect_to [@wikis]
+    else
+      flash.now[:alert] = "There was a problem deleting, try again."
+      render :show
+    end
   end
 
   private
     def wiki_params
       params.require(:wiki).permit(:title, :body)
     end
+
 end
