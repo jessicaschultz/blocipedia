@@ -9,4 +9,6 @@ class User < ApplicationRecord
 
   has_many :wiki
 
+  #role: [:standard => 0 (which is default), :premium => 1, :admin => 3]
+  enum role: [:standard, :premium, :admin]
 end
