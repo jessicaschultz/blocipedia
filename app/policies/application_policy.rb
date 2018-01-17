@@ -2,6 +2,8 @@ class ApplicationPolicy
   attr_reader :user, :record
 
   def initialize(user, record)
+    #refer to 'closed systems' in Pundit readme.
+    #raises exception if unauthenticated user got through.
     raise Pundit::NotAuthorizedError, "must be logged in" unless user
     @user = user
     @record = record
