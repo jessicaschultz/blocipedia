@@ -1,10 +1,9 @@
 class WikiPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope
-    end
+  def index?
+    false
   end
 
-  def destroy?
+  def show?
+    record.public?
   end
 end

@@ -49,7 +49,7 @@ class WikisController < ApplicationController
   def destroy
     @wikis = Wiki.find(params[:id])
     # @wiki_user = @wikis.user_id
-    # authorize Wiki
+    authorize Wiki
 
     flash.now[:alert] = 'Are you sure you want to delete this wiki?'
     if @wikis.destroy
@@ -61,7 +61,7 @@ class WikisController < ApplicationController
     end
   end
 
-  # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   private
     def user_not_authorized(exception)
@@ -74,11 +74,11 @@ class WikisController < ApplicationController
       params.require(:wiki).permit(:title, :body, :id)
     end
 
-    # def authorize_user
-    #  @wikis = Wiki.find(params[:id])
-    #  unless current_user.id == wikis.user_id
-    #    flash[:alert] = "You must be the author of the wiki to do that."
-    #    redirect_to [@wikis]
-    #  end
-    # end
+    def authorize_user
+     @wikis = Wiki.find(params[:id])
+     unless current_user.id == wikis.user_id
+       flash[:alert] = "You must be the author of the wiki to do that."
+       redirect_to [@wikis]
+     end
+    end
 end
