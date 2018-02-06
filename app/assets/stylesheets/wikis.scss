@@ -1,6 +1,21 @@
 // Place all the styles related to the Wikis controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.new-wiki-title-block{
+  display: inline-block;
+  width: 100%;
+}
+
+.new-wiki-title{
+  font-size: 105px;
+ 	font-weight: 800;
+ 	color: #232227;
+ 	text-transform: uppercase;
+ 	display: inline-block;
+ 	width: 100%;
+ 	margin-top: 30px;
+ 	line-height: 80px;
+}
 .wikis{
   // padding-top: 100px;
 }

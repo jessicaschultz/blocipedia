@@ -9,6 +9,8 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 group :production do
   # Use pg as the production database for Active Record
   gem 'pg'
@@ -21,6 +23,7 @@ end
    gem 'web-console', '>= 3.3.0'
  end
 
+gem 'stripe'
 gem 'devise'
 gem "pundit"
 gem 'bootstrap-sass'

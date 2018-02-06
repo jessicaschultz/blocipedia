@@ -1,0 +1,31 @@
+<div id="content">
+  <section class="upgrade">
+    <div class="container">
+      <div class="col-sm-12">
+        <div class="heading-block">
+          <div class="col-sm-12">
+            <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+            <% end %>
+          </div>
+          <h3 class="upgrade-title animate fadeInRight">Upgrade to Premium</h3>
+          <dv class="col-sm-8">
+            <h6 class="upgrade-subtitle animate fadeInRight">to unlock additional features</h6>
+            <%= form_tag charges_path do %>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="<%= @description %>"
+            data-amount="<%= @amount %>"
+            data-email="<%= current_user.email %>"
+            data-bitcoin="true"
+            data-locale="auto"></script>
+            <% end %>
+          </dv>
+          <%= image_tag "_img/icon-services-2.png", class:"upgrade-img animate fadeInLeft col-sm-4", alt:"blocipedia" %>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

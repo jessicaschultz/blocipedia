@@ -1,0 +1,29 @@
+// Place all the styles related to the downgrades controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.upgrade-title{
+  font-size: 105px;
+  font-weight: 800;
+  color: #232227;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 100%;
+  margin-top: 30px !important;
+  line-height: 80px !important;
+  letter-spacing: 2px;
+}
+
+.upgrade-subtitle{
+  font-family: 'Playfair Display', serif;
+  text-transform: none;
+  font-weight: 500;
+  margin: 0px;
+  padding: 20px 20px 0 !important;
+  position: relative;
+  display: inline-block;
+  color: #232227;
+  font-size: 25px;
+  margin-top: 40px !important;
+  margin-left: 150px;
+  margin-bottom: 10px !important;
+}

@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable
 
-  validates :name, presence: true
+         # validates :name, presence: true
 
-  has_many :wiki
+  has_many :wikis, dependent: :destroy
 
   #role: [:standard => 0 (which is default), :premium => 1, :admin => 3]
   enum role: [:standard, :premium, :admin]

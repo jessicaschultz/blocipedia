@@ -1,0 +1,46 @@
+<div class="content">
+  <section class="bloc-plans" id="plans">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg heading-block">
+          <h1 class="bloc-plans-heading huge-tittle">Select a Plan</h1>
+        </div>
+        <div class="col-sm-6 col-md-6">
+          <div class="thumbnail">
+            <%= image_tag "about-plan-placeholder1.png", class:"rounded-circle", alt:"Generic placeholder image" %>
+            <div class="caption">
+              <h2 class="plan">Standard</h2>
+              <% if current_user.premium? %>
+              <h6>Free</h6>
+              <p>Sustainable Polaroid raw denim four loko vexillologist, hexagon viral whatever kitsch dreamcatcher umami art party. </p>
+              <p><%= link_to "Free", downgrade_plan_path, :class =>"btn-sm"%></p>
+              <% else %>
+              <h6>Current Plan</h6>
+              <p>Sustainable Polaroid raw denim four loko vexillologist, hexagon viral whatever kitsch dreamcatcher umami art party. </p>
+              <p><a href="#" class="btn-sm disabled" role="button" aria-disabled="true">Free</a></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-6">
+          <div class="thumbnail">
+            <%= image_tag "about-plan-placeholder2.png", class:"rounded-circle", alt:"Generic placeholder image" %>
+            <div class="caption">
+              <h2 class="plan">Premium</h2>
+              <% if current_user.standard? %>
+                <h6>Upgrade to unlock special features</h6>
+                <p>DIY disrupt dreamcatcher, cornhole leggings pork belly meditation polaroid chia XOXO offal irony VHS shaman.</p>
+                <p><%= link_to "$15.99", new_charge_path, :class =>"btn-sm"%></p>
+              <% else %>
+                <h6>Current Plan</h6>
+                <p>DIY disrupt dreamcatcher, cornhole leggings pork belly meditation polaroid chia XOXO offal irony VHS shaman.</p>
+                <p><a href="#" class="btn-sm disabled" role="button" aria-disabled="true">$15.00</a></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </section>
+</div>

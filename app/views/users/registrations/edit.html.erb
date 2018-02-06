@@ -1,10 +1,29 @@
 <div id="content">
   <section class="edit-profile">
     <div class="container">
-      <h2 class="">Edit <%= resource_name.to_s.humanize %></h2>
+      <div class="heading">
+        <h2 class="pg-title">Edit Profile</h2>
+        <p class="lead edit-profile-p"><strong>Subscription:</strong>
+          <%= current_user.role %>
+          <% if current_user.standard? %>
+            <p>Want more features?</p>
+            <%= link_to "Upgrade My Account", new_charge_path, class: 'btn-xs-blue' %>
+          <% else %>
+            <p>Want to downgrade?</p>
+            <%= link_to "downgrade", downgrade_plan_path, class: 'btn-xs-blue' %>
+          <% end %>
+        </p>
+      </div>
 
+      <hr class="featurette-divider">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
+
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+      <br />
 
       <div class="field">
         <%= f.label :email %><br />
@@ -45,12 +64,13 @@
 
       <hr class="featurette-divider">
 
-      <h5>Unhappy?</h5>
-
-      <p class=""><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-      <%= link_to "Back", :back, class: 'btn-flat'%>
-
+      <div class="cancel-div col-sm-12">
+        <h5 class="cancel-title">Not Happy With Blocipedia?</h5>
+        <p class="cancel-p">
+          <%= button_to "Cancel", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn-xs-blue col-sm-1 cancel-btn' %>
+          <%= link_to "Back", :back, class: 'btn-xs col-sm-1 cancel-btn'%>
+        </p>
+      </div>
     </div>
   </section>
 </div>

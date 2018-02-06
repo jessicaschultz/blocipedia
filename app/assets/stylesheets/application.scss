@@ -294,6 +294,12 @@
  	margin: 0 auto;
  	margin-top: 30px;
  }
+ .pg-title{
+   font-size: 40px;
+  	color: #232227;
+  	margin-top: 10px;
+  	text-transform: uppercase;
+ }
      /*========================
          d:BUTTON CLASSES
      =========================*/
@@ -320,8 +326,30 @@
  	color: #131313;
  	background: #fff;
  }
- .btn-sm{
+ .btn-xs-blue{
    display: inline-block;
+   font-size: 12px;
+   font-weight: bold;
+   text-transform: uppercase;
+   padding: 5px 10px;
+   border-radius: 10px;
+   letter-spacing: 1px;
+   color: #fe6192;
+   background: #4fd5ed;
+ }
+ .btn-xs{
+   display: inline-block;
+   font-size: 12px;
+   font-weight: bold;
+   text-transform: uppercase;
+   padding: 5px 10px;
+   border-radius: 10px;
+   letter-spacing: 1px;
+   color: #fff;
+   background: #fe6192;
+ }
+ .btn-sm{
+    display: inline-block;
   	font-size: 16px;
   	text-transform: uppercase;
   	padding: 10px 15px;

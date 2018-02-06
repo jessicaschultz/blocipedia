@@ -1,5 +1,5 @@
 class WikisController < ApplicationController
-  # before_action :authorize_user, except: [:show, :new, :create]
+  before_action :require_sign_in, except: [:show]
 
   def index
     @wikis = Wiki.all
@@ -7,39 +7,40 @@ class WikisController < ApplicationController
 
   def show
     # @user = authorize User.find(params[:id])
-    @wikis = Wiki.find(params[:id])
+    @wiki = Wiki.find(params[:id])
   end
 
   def new
-    @wikis = Wiki.new
+    @wiki = Wiki.new
   end
 
   def create
-    @wikis = Wiki.new(wiki_params)
-    @wikis.user_id = current_user.id
-    @wikis.title = params[:wiki][:title]
-    @wikis.body = params[:wiki][:body]
-    @wikis.save
+    @wiki = Wiki.new(wiki_params)
+    @wiki.user = current_user
+    @wiki.title = params[:wiki][:title]
+    @wiki.body = params[:wiki][:body]
+    # @wiki.save
 
-    if @wikis.save
-      flash[:notice] = "You Wiki was published"
-      redirect_to [@wikis]
+    if @wiki.save
+      flash[:notice] = "Wiki was published"
+      redirect_to @wiki
     else
       flash.now[:alert] = "There was an error saving the wiki. Please try again."
+      render :new
     end
   end
 
   def edit
-    @wikis = Wiki.find(params[:id])
+    @wiki = Wiki.find(params[:id])
   end
 
   def update
-    @wikis = Wiki.find(params[:id])
-    @wikis.assign_attributes(wiki_params)
+    @wiki = Wiki.find(params[:id])
+    @wiki.assign_attributes(wiki_params)
 
-    if @wikis.save
+    if @wiki.save
      flash[:notice] = "Wiki was updated."
-     redirect_to [@wikis]
+     redirect_to @wiki
     else
      flash.now[:alert] = "There was an error saving the wiki. Please try again."
      render :edit
@@ -47,14 +48,16 @@ class WikisController < ApplicationController
   end
 
   def destroy
-    @wikis = Wiki.find(params[:id])
+    @wiki = Wiki.find(params[:id])
     # @wiki_user = @wikis.user_id
-    authorize Wiki
+    # authorize Wiki
+    authorize @wiki
 
     flash.now[:alert] = 'Are you sure you want to delete this wiki?'
-    if @wikis.destroy
-      flash[:notice] = "\"#{@wikis.title}\" was deleted."
-      redirect_to [@wikis]
+
+    if @wiki.destroy
+      flash[:notice] = "\"#{@wiki.title}\" was deleted."
+      redirect_to wikis_path
     else
       flash.now[:alert] = "There was a problem deleting, try again."
       render :show
@@ -75,8 +78,8 @@ class WikisController < ApplicationController
     end
 
     def authorize_user
-     @wikis = Wiki.find(params[:id])
-     unless current_user.id == wikis.user_id
+     @wiki = Wiki.find(params[:id])
+     unless current_user == @wiki.user
        flash[:alert] = "You must be the author of the wiki to do that."
        redirect_to [@wikis]
      end
