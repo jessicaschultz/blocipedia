@@ -11,8 +11,21 @@
          </div>
        </div>
 
-
        <hr class="featurette-divider">
+
+       <div class="flash-container">
+         <% if flash[:notice] %>
+         <div class="alert alert-success">
+           <button type="button" class="close" data-dismiss="alert">&times;</button>
+           <%= flash[:notice] %>
+         </div>
+         <% elsif flash[:alert] %>
+         <div class="alert alert-warning">
+           <button type="button" class="close" data-dismiss="alert">&times;</button>
+           <%= flash[:alert] %>
+         </div>
+         <% end %>
+       </div>
 
        <div class="row">
          <div class="col-md-8 wiki-list">
@@ -24,10 +37,10 @@
              <%= f.label :body, class: 'media-heading' %>
              <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter Wiki body" %>
              <div class="form-group">
+               <%= render partial: "form", locals: {f: f}%>
                <br>
                <%= f.submit "Save", class: 'btn-sm' %>
              </div>
-             <%= render "form" %>
           <% end %>
            </div>
          </div>

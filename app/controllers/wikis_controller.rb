@@ -7,20 +7,23 @@ class WikisController < ApplicationController
   end
 
   def show
-    # @user = authorize User.find(params[:id])
     @wiki = Wiki.find(params[:id])
+    authorize @wiki
+    unless @wiki.private == false || @wiki.user == current_user|| current_user.admin? || current_user.role == "premium"
+      flash[:alert]= "Sorry, but you need to be a premium member in order to access this post."
+      redirect_to wikis_path
+    end
   end
 
   def new
     @wiki = Wiki.new
+    authorize @wiki
   end
 
   def create
     @wiki = Wiki.new(wiki_params)
     @wiki.user = current_user
-    @wiki.title = params[:wiki][:title]
-    @wiki.body = params[:wiki][:body]
-    # @wiki.save
+    authorize @wiki
 
     if @wiki.save
       flash[:notice] = "Wiki was published"
@@ -33,7 +36,7 @@ class WikisController < ApplicationController
 
   def edit
     @wiki = Wiki.find(params[:id])
-    # authorize @wiki.user
+    authorize @wiki
   end
 
   def update
@@ -51,8 +54,6 @@ class WikisController < ApplicationController
 
   def destroy
     @wiki = Wiki.find(params[:id])
-    # @wiki_user = @wikis.user_id
-    # authorize Wiki
     authorize @wiki
 
     flash.now[:alert] = 'Are you sure you want to delete this wiki?'
@@ -69,14 +70,8 @@ class WikisController < ApplicationController
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   private
-    def user_not_authorized(exception)
-      policy_name = exception.policy.class.to_s.underscore
-      flash[:warning] = t "#{policy_name}.#{exception.query}", scope: "pundit", default: :default
-      redirect_to(request.referrer || root_path)
-    end
-
     def wiki_params
-      params.require(:wiki).permit(:title, :body, :id)
+      params.require(:wiki).permit(:title, :body, :id, :private)
     end
 
     def authorize_user

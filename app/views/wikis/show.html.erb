@@ -3,7 +3,7 @@
     <div class="container">
       <div class="col-sm-12 heading-block-view wiki-show-view-heading">
         <div class="col-md-8">
-          <h1 class="animate fadeInRight">Wiki</h1>
+          <!-- <h1 class="animate fadeInRight">Create</h1> -->
         </div>
         <div class="col-md-4">
           <%= link_to "Back to Wikis", wikis_path, class: 'btn-flat' %>
@@ -14,6 +14,19 @@
       <div class="row">
         <div class="col-md-8 wiki-list">
           <div class="media">
+            <div class="flash-container">
+              <% if flash[:notice] %>
+              <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <%= flash[:notice] %>
+              </div>
+              <% elsif flash[:alert] %>
+              <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <%= flash[:alert] %>
+              </div>
+              <% end %>
+            </div>
             <h4><%= @wiki.title %></h4>
               <div class="media-body">
                 <p class="lead"><%= @wiki.body%></p>

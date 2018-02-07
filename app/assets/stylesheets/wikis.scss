@@ -48,3 +48,16 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.private-checkbox{
+  padding-left: 20px;
+  margin: 0;
+}
+.checkbox input[type="checkbox"]{
+  margin-top: 8px !important;
+  margin-left: -20px !important;
+}
+.private-label{
+  color: black;
+  font-size: 1em;
+}

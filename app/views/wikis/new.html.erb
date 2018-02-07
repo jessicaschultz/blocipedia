@@ -2,9 +2,7 @@
   <section class="new-wiki">
     <div class="new-wiki-title-block">
       <h1 class="new-wiki-title animate fadeInRight">New Wiki</h1>
-      <p class="lead"> Do you want to make this post Private?
-        <br>
-        <a href="#" class="btn-sm">Private Mode</a>
+      <p class="lead"> Do you want to add collaborators?
       </p>
     </div>
 
@@ -27,6 +25,7 @@
         <%= f.text_field :title, class: 'form-control', placeholder: "Enter Wiki title" %>
         <%= f.label :body %>
         <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter Wiki body" %>
+        <%= render partial: "form", locals: {f: f}%>
         <div class="form-group">
           <br>
           <%= f.submit "Save", class: 'btn-sm' %>

@@ -1,3 +1,7 @@
 <% if current_user.admin? || current_user.premium? %>
-
+  <div class="form-group private-checkbox">
+    <%= f.label :private, class: 'checkbox' do %>
+      <%= f.check_box :private %> <p class="private-label">Private wiki</p>
+    <% end %>
+  </div>
 <% end %>
