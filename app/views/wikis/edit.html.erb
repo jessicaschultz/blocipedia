@@ -27,17 +27,27 @@
                <br>
                <%= f.submit "Save", class: 'btn-sm' %>
              </div>
-             <% end %>
+             <%= render "form" %>
+          <% end %>
            </div>
          </div>
 
          <div class="col-md-4 wiki-btn-col">
            <div class="media">
              <div class="media-body">
-             <!-- need to fix to check if current_user is author of wiki. if so show the following: -->
-             <% if current_user == @wiki.user %>
-               <%= link_to "Delete", @wiki, method: :delete, class: 'btn-sm', data: { confirm: 'Are you sure you want to delete this wiki?' }%>
-             <% end %>
+               <!-- need to fix to check if current_user is author of wiki. if so show the following: -->
+                 <% if current_user == @wiki.user %>
+                   <%= link_to "Delete", @wiki, method: :delete, class: 'btn-sm', data: { confirm: 'Are you sure you want to delete this wiki?' }%>
+                 <% end %>
+
+               <p class="small">
+                <strong>created by: </strong>
+                 <%= @wiki.user.email%>
+                <strong>collaborators: </strong>
+                <% @wiki.user do |u| %>
+                  <%= u.user.email %>
+                <% end %>
+               </p>
              </div>
            </div>
          </div>
