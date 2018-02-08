@@ -29,7 +29,7 @@
             </div>
             <h4><%= @wiki.title %></h4>
               <div class="media-body">
-                <p class="lead"><%= @wiki.body%></p>
+                <p class="lead"><%= markdown(@wiki.body)%></p>
                 <small>
                   submitted <%= time_ago_in_words(@wiki.created_at) %> ago by <%= @wiki.user.email %>
                 </small>
