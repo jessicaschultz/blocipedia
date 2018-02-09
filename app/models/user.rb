@@ -8,6 +8,7 @@ class User < ApplicationRecord
          # validates :name, presence: true
 
   has_many :wikis, dependent: :destroy
+  has_many :collaborators
 
   #role: [:standard => 0 (which is default), :premium => 1, :admin => 3]
   enum role: [:standard, :premium, :admin]
